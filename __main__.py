@@ -17,34 +17,34 @@ while _control_ == False:
     print("[1] Adicao\n[2] Subtracao\n[3] Multiplicacao\n[4] Divisao\n[5] Potencia\n[6] Porcentagem\n[7] Raiz quadrada\n[0] Sair")
     opcao = int(input("Insira a opcao: "))
 
+  
+
     if opcao == 1 or opcao == 2 or opcao == 3 or opcao == 4 or opcao == 5 or opcao == 6 or opcao == 7 or opcao == 0:
         match opcao:
             case 1:
                 print(saudacao.resposta(nome))
-                print(f"A soma de {num1} e {num2} é: {modulo.adicionar(num1, num2)}")
+                print(f"A soma dos números {num1} e {num2} é: {modulo.adicionar(num1, num2):.2f}")
             case 2:
                 print(saudacao.resposta(nome))
-                print(f"A subtração de {num1} e {num2} é: {modulo.subtrair(num1, num2)}")
+                print(f"A subtração dos números {num1} e {num2} é: {modulo.subtrair(num1, num2):.2f}")
             case 3:
                 print(saudacao.resposta(nome))
-                print(f"A multiplicação de {num1} e {num2} é: {modulo.multiplicar(num1, num2)}")
+                print(f"A multiplicação dos números {num1} e {num2} é: {modulo.multiplicar(num1, num2):.2f}")
             case 4:
                 print(saudacao.resposta(nome))
-                print(f"A divisão de {num1} e {num2} é: {modulo.dividir(num1, num2)}")
+                print(f"A divisão dos números {num1} e {num2} é: {modulo.dividir(num1, num2):.2f}")
             case 5:
                 print(saudacao.resposta(nome))
-                print(f"A potência de {num1} e {num2} é: {modulo.potencia(num1, num2)}")
+                print(f"A potência dos números {num1} e {num2} é: {modulo.potencia(num1, num2)}")
             case 6:
                 print(saudacao.resposta(nome))
-                print(f"A porcentagem de {num1} e {num2} é: {modulo.porcentagem(num1, num2)}")
+                print(f"{num1} porcento de {num2} é: {modulo.porcentagem(num1, num2):.2f}")
             case 7:
                 print(saudacao.resposta(nome))
-                print(f"A raiz quadrada de {num1} é: {modulo.raiz(num1)}, e a raiz do {num2} é: {modulo.raiz(num2)}")
+                print(f"A raiz quadrada de {num1} é: {modulo.raiz(num1):.2f}, e a raiz do {num2} é: {modulo.raiz(num2):.2f}")
             case 0:
                 print("Saindo...")
                 _control_ = True
-            case _:
-                print("Escolha errada")
     else:
         print("Escolha errada")
 
