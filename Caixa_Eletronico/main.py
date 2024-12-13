@@ -32,10 +32,15 @@ def inserir_conta():
         entrada_nova_conta.delete(0, tk.END)
 
     else:
-        contas[conta] = ContaBancaria(titular, conta, 0)
-        messagebox.showinfo('Mensagem', 'Conta cadastrada com sucesso')
-        entrada_novo_titular.delete(0, tk.END)
-        entrada_nova_conta.delete(0, tk.END)
+        if conta in contas:
+            messagebox.showinfo('Mensagem', 'Numero de conta já criado')
+            entrada_novo_titular.delete(0, tk.END)
+            entrada_nova_conta.delete(0, tk.END)
+        else:
+            contas[conta] = ContaBancaria(titular, conta, 0)
+            messagebox.showinfo('Mensagem', 'Conta cadastrada com sucesso')
+            entrada_novo_titular.delete(0, tk.END)
+            entrada_nova_conta.delete(0, tk.END)
 
 contas = {
     '1234': ContaBancaria('Erick', '1234', 0),
