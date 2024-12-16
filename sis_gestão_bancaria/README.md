@@ -4,7 +4,7 @@ Este é um sistema de **gestão bancária** desenvolvido em Python, utilizando a
 
 ---
 
-## 🛠️ Funcionalidades
+## Funcionalidades
 
 1. **Login de Usuário**:
    - Verificação de usuário e senha para acesso ao sistema.
