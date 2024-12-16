@@ -32,16 +32,17 @@ def login():
     senha = entrada_senha.get()
     
     users = {
-    "nome": "Erick",
-    "senha": "1234",
-    }
-    
-    if user == users.get("nome") and senha == users.get("senha"):
-        print(f"Logado com sucesso" + user)
+        "Erick": "1234",
+        "Pedro": "5678",
+        "Admin": "4321"
+}
+      
+    if user in users and senha == users[user]:
+        print(f"Logado com sucesso, {user}")
         tela_principal(user)
     else:
         messagebox.showerror('Mensagem', 'Usuario ou senha incorretos')
-
+   
 contas = {
     "1234": ContaBancaria("Erick", "1234", 0),
     "5678": ContaBancaria("Maria", "5678", 0),
@@ -178,10 +179,14 @@ def tela_nova_conta():
 
         if numero_conta not in contas:
             contas[numero_conta] = ContaBancaria(titular, numero_conta, float(saldo))
-            messagebox.showinfo('Mensagem', 'Numero de conta cadastrado')
+            messagebox.showinfo('Mensagem', 'Conta cadastrada com sucesso!')
+            messagebox.showinfo('Mensagem', f'Seu saldo é: {contas[numero_conta].consultar_saldo()}')
             tela_nova_conta_window.destroy()
         else:
-            messagebox.showinfo('Mensagem', 'Numero de conta ja cadastrado')
+            messagebox.showwarning('Mensagem', 'Numero de conta ja cadastrado')
+            entrada_nova_conta.delete(0, tk.END)
+            entrada_novo_titular.delete(0, tk.END)
+            entrada_novo_saldo.delete(0, tk.END)
 
     def cancelar():
         tela_nova_conta_window.destroy()
