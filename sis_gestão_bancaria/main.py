@@ -86,11 +86,12 @@ def tela_principal(user):
         else:
             messagebox.showinfo('Mensagem', 'Conta nao encontrada')
             entrada_conta.delete(0, tk.END)
+
     def novo_saque():
         numero_conta = entrada_conta.get()
         valor_saque = entrada_valor.get()
     
-        if numero_conta in contas and entrada_valor.get() != '':
+        if numero_conta in contas and valor_saque != '':
             valor_saque = float(valor_saque)
             if valor_saque > contas[numero_conta].consultar_saldo():
                 messagebox.showinfo('Mensagem', f'Saldo insuficiente, seu saldo é: {contas[numero_conta].consultar_saldo()}')
@@ -176,7 +177,7 @@ def tela_nova_conta():
         saldo = entrada_novo_saldo.get()
 
         if numero_conta not in contas:
-            contas[numero_conta] = ContaBancaria(titular, numero_conta, saldo)
+            contas[numero_conta] = ContaBancaria(titular, numero_conta, float(saldo))
             messagebox.showinfo('Mensagem', 'Numero de conta cadastrado')
             tela_nova_conta_window.destroy()
         else:
