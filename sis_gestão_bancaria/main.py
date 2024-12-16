@@ -38,10 +38,12 @@ def login():
 }
       
     if user in users and senha == users[user]:
-        print(f"Logado com sucesso, {user}")
+        messagebox.showinfo('Mensagem', f"Seja bem vindo, {user}")
         tela_principal(user)
     else:
         messagebox.showerror('Mensagem', 'Usuario ou senha incorretos')
+        entrada_usuario.delete(0, tk.END)
+        entrada_senha.delete(0, tk.END)
    
 contas = {
     "1234": ContaBancaria("Erick", "1234", 0),
