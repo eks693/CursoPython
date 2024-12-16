@@ -44,7 +44,8 @@ def login():
 
 contas = {
     "1234": ContaBancaria("Erick", "1234", 0),
-    "5678": ContaBancaria("Orlando", "5678", 0),
+    "5678": ContaBancaria("Maria", "5678", 0),
+    "4321": ContaBancaria("João", "4321", 0),
 }
 
 def tela_principal(user):
@@ -57,7 +58,6 @@ def tela_principal(user):
               messagebox.showinfo('Mensagem', 'Digite um valor')
               entrada_valor.delete(0, tk.END)
               entrada_conta.delete(0, tk.END)
-
             else:
                 saldo = contas[conta_saldo].consultar_saldo()
                 messagebox.showinfo('Mensagem', f'Seu saldo é: {saldo}')
@@ -76,7 +76,6 @@ def tela_principal(user):
                 messagebox.showinfo('Mensagem', 'Digite um valor')
                 entrada_valor.delete(0, tk.END)
                 entrada_conta.delete(0, tk.END)
-
             else:
                 valor = float(valor)
                 contas[conta].depositar(valor)
@@ -97,14 +96,12 @@ def tela_principal(user):
                 messagebox.showinfo('Mensagem', f'Saldo insuficiente, seu saldo é: {contas[numero_conta].consultar_saldo()}')
                 entrada_valor.delete(0, tk.END)
                 entrada_conta.delete(0, tk.END)
-
             else:
                 contas[numero_conta].sacar(valor_saque)
                 messagebox.showinfo('Mensagem', 'Saque realizado com sucesso')
                 messagebox.showinfo('Mensagem', f'Seu saldo é: {contas[numero_conta].consultar_saldo()}')
                 entrada_valor.delete(0, tk.END)
                 entrada_conta.delete(0, tk.END)
-
         else:
             messagebox.showinfo('Mensagem', 'Conta nao encontrada ou valor invalido')
             entrada_valor.delete(0, tk.END)
@@ -160,8 +157,6 @@ def tela_principal(user):
 
     ttk.Button(main_window, text='Sair', command= on_closing).grid(row=8, column=1)
 
-
-
 def tela_nova_conta():
     global nova_conta_window
     tela_nova_conta_window = tk.Toplevel()
@@ -212,7 +207,6 @@ def tela_nova_conta():
     
 
 # Criar tela de login
-
 root = tk.Tk()
 root.title('Login Caixa Eletrônico')
 root.geometry('300x160')
